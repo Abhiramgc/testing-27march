@@ -1,0 +1,14 @@
+config.vm.provider "virtualbox" do |v|
+   v.memory = 2048
+   v.cpus = 1
+  end
+ config.vm.define "puppetmaster" do |pm|
+  config.vm.box = "centos/7"
+  pm.vm.network "private_network", ip: "192.168.33.10"
+  pm.vm.hostname = "puppetmaster"
+ end
+ config.vm.define "puppetagent" do |pa|
+  config.vm.box = "centos/7"
+  pa.vm.network "private_network", ip: "192.168.33.11"
+  pa.vm.hostname = "puppetagent"
+ end
